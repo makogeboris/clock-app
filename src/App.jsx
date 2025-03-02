@@ -38,12 +38,23 @@ const Container = styled.div`
   }
 `;
 
-const TIMEZONE_API_KEY = import.meta.env.VITE_TIMEZONE_DB_API_KEY;
+// const TIMEZONE_API_KEY = import.meta.env.VITE_TIMEZONE_DB_API_KEY;
+
+// async function fetchTime(zone) {
+//   try {
+//     const url = `https://api.timezonedb.com/v2.1/get-time-zone?key=${TIMEZONE_API_KEY}&format=json&by=zone&zone=${zone}`;
+//     const { data } = await axios.get(url);
+//     return data;
+//   } catch (error) {
+//     console.error("Error fetching time data:", error);
+//     throw new Error("Failed to fetch time data");
+//   }
+// }
 
 async function fetchTime(zone) {
   try {
-    const url = `https://api.timezonedb.com/v2.1/get-time-zone?key=${TIMEZONE_API_KEY}&format=json&by=zone&zone=${zone}`;
-    const { data } = await axios.get(url);
+    // Call your serverless function endpoint (which is hosted on your own domain)
+    const { data } = await axios.get(`/api/timezone?zone=${zone}`);
     return data;
   } catch (error) {
     console.error("Error fetching time data:", error);

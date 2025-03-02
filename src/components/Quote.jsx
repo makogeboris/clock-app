@@ -32,10 +32,21 @@ const Button = styled.button`
   padding-top: 8px;
 `;
 
+// async function fetchQuote() {
+//   try {
+//     const { data } = await axios.get("https://zenquotes.io/api/random");
+//     return { text: data[0].q, author: data[0].a };
+//   } catch (error) {
+//     console.error("Error fetching quote:", error);
+//     return { text: "Failed to load quote.", author: "Unknown" };
+//   }
+// }
+
 async function fetchQuote() {
   try {
-    const { data } = await axios.get("https://zenquotes.io/api/random");
-    return { text: data[0].q, author: data[0].a };
+    // Call your serverless function endpoint for quotes
+    const { data } = await axios.get("/api/quotes");
+    return data;
   } catch (error) {
     console.error("Error fetching quote:", error);
     return { text: "Failed to load quote.", author: "Unknown" };
