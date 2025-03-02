@@ -75,25 +75,30 @@ ol[role="list"] {
 }
 
 /* Set core body defaults */
-body {
+
+  body {
   min-height: 100dvh;
   line-height: 1.5;
   font-family: var(--ff-inter);
 
-  background-image: url(${(props) => props.bgMobile});
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                    url(${(props) => props.bgMobile});
 
   @media (min-width: 26.875rem) {
-    background-image: url(${(props) => props.bgTablet});
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url(${(props) => props.bgTablet});
     background-position: center;
   }
 
   @media (min-width: 48rem) {
-    background-image: url(${(props) => props.bgDesktop});
-    }
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url(${(props) => props.bgDesktop});
+  }
 }
+
 
 /* Remove default margins */
 html,

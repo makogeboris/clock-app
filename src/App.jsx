@@ -26,7 +26,6 @@ const Container = styled.div`
   margin: 0 auto;
 
   @media (min-width: 37.5rem) {
-    padding-inline: 4rem;
     padding-block-start: ${(props) => (props.$showexpanded ? "9rem" : "5rem")};
     padding-block-end: 64px;
   }
