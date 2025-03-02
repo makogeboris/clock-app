@@ -2,7 +2,6 @@ import axios from "axios";
 import dotenv from "dotenv";
 import process from "node:process";
 
-// Only load dotenv locally; in production Vercel injects env vars automatically.
 if (typeof window === "undefined" && process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
@@ -13,7 +12,6 @@ export default async (req, res) => {
     return res.status(400).json({ error: "Zone parameter is required" });
   }
 
-  // Use the environment variable (set in Vercel dashboard for production)
   const TIMEZONE_API_KEY = process.env.TIMEZONE_DB_API_KEY;
   const apiUrl = `https://api.timezonedb.com/v2.1/get-time-zone?key=${TIMEZONE_API_KEY}&format=json&by=zone&zone=${zone}`;
 
